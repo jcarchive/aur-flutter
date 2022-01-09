@@ -1,0 +1,13 @@
+post_install() {
+  groupadd -f flutter
+  chgrp -R flutter /usr/share/flutter
+  chmod -R g+rwx /usr/share/flutter
+}
+
+post_upgrade() {
+  post_install
+}
+
+post_remove() {
+  groupdel flutter
+}
